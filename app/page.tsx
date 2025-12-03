@@ -74,21 +74,20 @@ export default function Page() {
         {/* Hero Section */}
         <section
           id="about"
-          className={`mb-16 transform transition-all duration-700 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-            }`}
+          className="mb-16"
         >
-          <div className="mb-6">
+          <div className={`mb-6 transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
             <h1 className={`text-sm font-light mb-1 ${isDark ? 'text-gray-200' : 'text-gray-900'}`}>$ whoami</h1>
             <p className={`text-xs font-light ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>suhail@portfolio:~</p>
           </div>
 
-          <p className={`text-xs leading-relaxed mb-4 max-w-xl font-light ${isDark ? 'text-gray-400' : 'text-gray-700'}`}>
+          <p className={`text-xs leading-relaxed mb-4 max-w-xl font-light transition-all duration-500 delay-100 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'} ${isDark ? 'text-gray-400' : 'text-gray-700'}`}>
             software engineer // amsterdam, the netherlands<br />
             web development + machine learning<br />
             building meaningful digital experiences
           </p>
 
-          <div className="flex flex-wrap gap-1.5 mb-4">
+          <div className={`flex flex-wrap gap-1.5 mb-4 transition-all duration-500 delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
             <Badge
               variant="outline"
               className={`text-[9px] px-1.5 py-0.5 rounded-none font-light ${isDark ? 'border-gray-700 text-gray-400' : 'border-gray-400 text-gray-600'}`}
@@ -109,7 +108,7 @@ export default function Page() {
             </Badge>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className={`flex items-center gap-2 transition-all duration-500 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
             <Button
               variant="ghost"
               size="sm"
@@ -160,11 +159,12 @@ export default function Page() {
             ].map((item, index) => (
               <div
                 key={index}
-                className={`flex items-start gap-2 px-2 py-1 transition-all duration-200 hover:translate-x-1 cursor-pointer ${isDark ? 'hover:bg-gray-800/30' : 'hover:bg-gray-100/30'
+                className={`flex items-start gap-2 px-2 py-1 transition-all duration-300 ease-out hover:translate-x-2 hover:bg-opacity-100 cursor-pointer group ${isDark ? 'hover:bg-gray-800/40' : 'hover:bg-gray-100/40'
                   }`}
+                style={{ transitionDelay: `${index * 50}ms` }}
               >
-                <span className={`text-[10px] font-light ${isDark ? 'text-gray-600' : 'text-gray-400'}`}>{item.prefix}</span>
-                <span className={`text-[10px] font-light ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{item.text}</span>
+                <span className={`text-[10px] font-light transition-colors duration-300 ${isDark ? 'text-gray-600 group-hover:text-gray-500' : 'text-gray-400 group-hover:text-gray-500'}`}>{item.prefix}</span>
+                <span className={`text-[10px] font-light transition-colors duration-300 ${isDark ? 'text-gray-400 group-hover:text-gray-300' : 'text-gray-600 group-hover:text-gray-700'}`}>{item.text}</span>
               </div>
             ))}
           </div>
@@ -175,8 +175,12 @@ export default function Page() {
           <h2 className={`text-xs font-light tracking-wide mb-4 ${isDark ? 'text-gray-300' : 'text-gray-900'}`}>/skills</h2>
 
           <div className="grid grid-cols-4 md:grid-cols-5 gap-1.5">
-            {['js', 'py', 'react', 'node', 'ts', 'psql', 'docker', 'aws'].map((skill) => (
-              <div key={skill} className={`px-2 py-1 text-center border ${isDark ? 'border-gray-800 bg-gray-900/30' : 'border-gray-200 bg-gray-50/30'}`}>
+            {['js', 'py', 'react', 'node', 'ts', 'psql', 'docker', 'aws'].map((skill, index) => (
+              <div
+                key={skill}
+                className={`px-2 py-1 text-center border transition-all duration-300 hover:border-opacity-100 hover:-translate-y-0.5 ${isDark ? 'border-gray-800 bg-gray-900/30 hover:bg-gray-800/50 hover:border-gray-700' : 'border-gray-200 bg-gray-50/30 hover:bg-gray-100/50 hover:border-gray-300'}`}
+                style={{ transitionDelay: `${index * 30}ms` }}
+              >
                 <span className={`text-[9px] font-light ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>{skill}</span>
               </div>
             ))}
