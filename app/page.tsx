@@ -80,7 +80,9 @@ export default function Page() {
         >
           <div className={`mb-6 transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
             <h1 className={`text-xs sm:text-sm font-light mb-1 ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>$ whoami</h1>
-            <p className={`text-[10px] sm:text-xs font-light ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>suhail@portfolio:~</p>
+            <p className={`text-[10px] sm:text-xs font-light ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+              <span className={`${isDark ? 'text-green-400' : 'text-green-600'} font-medium`}>suhail</span>@~
+            </p>
           </div>
 
           <p className={`text-[11px] sm:text-xs leading-relaxed mb-4 max-w-xl font-light transition-all duration-500 delay-100 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'} ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
