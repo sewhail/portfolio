@@ -76,7 +76,7 @@ export default function Page() {
         {/* Hero Section */}
         <section
           id="about"
-          className="mb-16 sm:mb-20"
+          className="mb-10 sm:mb-12"
         >
           <div className={`mb-6 transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
             <h1 className={`text-xs sm:text-sm font-light mb-1 ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>$ whoami</h1>
@@ -148,7 +148,7 @@ export default function Page() {
         </section>
 
         {/* Current Ongoings Section */}
-        <section id="current" className="mb-16 sm:mb-20 pt-8">
+        <section id="current" className="mb-10 sm:mb-12 pt-4">
           <div className="flex items-center gap-2 mb-5">
             <span className={`text-[10px] animate-pulse ${isDark ? 'text-green-400' : 'text-green-500'}`}>●</span>
             <h2 className={`text-[11px] sm:text-xs font-light tracking-wider ${isDark ? 'text-gray-100' : 'text-gray-800'}`}>/current</h2>
@@ -175,7 +175,7 @@ export default function Page() {
         </section>
 
         {/* Skills Section */}
-        <section className="mb-16 sm:mb-20 pt-8">
+        <section className="mb-10 sm:mb-12 pt-4">
           <h2 className={`text-[11px] sm:text-xs font-light tracking-wider mb-5 ${isDark ? 'text-gray-100' : 'text-gray-800'}`}>/skills</h2>
 
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-1.5 sm:gap-2">
@@ -192,7 +192,7 @@ export default function Page() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="mb-16 pt-8">
+        <section id="contact" className="mb-10 pt-4">
           <h2 className={`text-[11px] sm:text-xs font-light tracking-wider mb-5 ${isDark ? 'text-gray-100' : 'text-gray-800'}`}>/contact</h2>
 
           <Card className={`border border-glow transition-all duration-300 hover:shadow-lg ${isDark ? 'border-gray-800 bg-gray-900/30 hover:border-gray-700' : 'border-gray-300 bg-gray-50/40 hover:border-gray-400'}`}>
