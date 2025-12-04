@@ -21,8 +21,8 @@ ultra-minimal portfolio website with a terminal-inspired aesthetic.
 ## dev
 
 ```bash
-npm install
-npm run dev
+bun install
+bun dev
 ```
 
 ## license
