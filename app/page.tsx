@@ -201,8 +201,8 @@ export default function Page() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                <div className="flex items-center gap-1">
-                  <Mail className="h-2.5 w-2.5" />
+                <div className="flex items-center gap-1.5">
+                  <Mail className="h-3 w-3 flex-shrink-0" />
                   <a href="mailto:sxhail@outlook.in" className={`text-[9px] sm:text-[10px] font-light hover:underline ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                     sxhail@outlook.in
                   </a>
