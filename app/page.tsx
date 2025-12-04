@@ -201,12 +201,10 @@ export default function Page() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                <div className="flex items-center gap-1.5">
-                  <Mail className="h-2.5 w-2.5 flex-shrink-0 mt-0.5" />
-                  <a href="mailto:sxhail@outlook.in" className={`text-[9px] sm:text-[10px] font-light hover:underline leading-none ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                    sxhail@outlook.in
-                  </a>
-                </div>
+                <a href="mailto:sxhail@outlook.in" className={`inline-flex items-center gap-1.5 text-[9px] sm:text-[10px] font-light hover:underline ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <Mail className="h-2.5 w-2.5 flex-shrink-0" />
+                  <span>sxhail@outlook.in</span>
+                </a>
                 <div className="flex items-center gap-2 sm:gap-1.5">
                   <Button variant="ghost" size="sm" className="h-5 w-5 p-0 rounded-none transition-all duration-200 hover:scale-110 active:scale-90" asChild>
                     <a href="https://github.com/sewhail" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center">
