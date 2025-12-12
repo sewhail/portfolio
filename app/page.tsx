@@ -62,17 +62,31 @@ export default function Page() {
     setIsLoaded(true);
   }, []);
 
-  // Scroll-based animation for hero section
+  // Scroll-based animation for hero section (smooth with lerp)
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const maxScroll = 200; // Animation completes over 200px of scroll
-      const progress = Math.min(scrollY / maxScroll, 1);
-      setScrollProgress(progress);
+    let animationId: number;
+    let currentProgress = 0;
+
+    const lerp = (start: number, end: number, factor: number) => {
+      return start + (end - start) * factor;
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const animate = () => {
+      const scrollY = window.scrollY;
+      const maxScroll = 150; // Animation completes over 150px of scroll
+      const targetProgress = Math.min(scrollY / maxScroll, 1);
+
+      // Smooth interpolation (lerp factor 0.1 = very smooth)
+      currentProgress = lerp(currentProgress, targetProgress, 0.12);
+
+      // Only update state if there's meaningful change
+      setScrollProgress(currentProgress);
+
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animationId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationId);
   }, []);
 
   // Keyboard navigation (1, 2, 3 to jump to sections)
@@ -157,10 +171,11 @@ export default function Page() {
           <div className={`flex flex-row items-center gap-4 sm:gap-5 mb-6 transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             {/* Avatar - shrinks on scroll */}
             <div
-              className="avatar-glow flex-shrink-0 transition-transform duration-100"
+              className="avatar-glow flex-shrink-0"
               style={{
-                transform: `scale(${1 - scrollProgress * 0.3})`,
-                transformOrigin: 'left center'
+                transform: `scale(${1 - scrollProgress * 0.25})`,
+                transformOrigin: 'left center',
+                willChange: 'transform'
               }}
             >
               <Avatar className={`h-20 w-20 sm:h-24 sm:w-24 ring-2 shadow-lg ${isDark
@@ -174,9 +189,10 @@ export default function Page() {
 
             {/* Intro - slides right on scroll */}
             <div
-              className="text-left transition-transform duration-100"
+              className="text-left"
               style={{
-                transform: `translateX(${scrollProgress * 20}px)`,
+                transform: `translateX(${scrollProgress * 15}px)`,
+                willChange: 'transform'
               }}
             >
               <h1 className={`text-base sm:text-lg font-normal tracking-tight mb-1 ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>
